@@ -16,7 +16,7 @@ var users = [
         major: "Informatics",
     },
     {
-        name: "Shiva Oktaiva Ariyanti",
+        name: "Shiva Oktavia Ariyanti",
         age: 13,
         major: "Informatics",
     },
