@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Learn React</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/jsx">
+        const container = document.getElementById('root');
+
+        const root = ReactDOM.createRoot(container);
+
+        // creating profile component
+        function Profile(props) {
+            const { name, umur, pekerjaan } = props;
+            return (
+                <div>
+                    <h1>Profile</h1>
+                    <ul>
+                        <li>Nama: {name}</li>
+                        <li>Umur: {umur}</li>
+                        <li>Pekerjaan: {pekerjaan}</li>
+                    </ul>
+                </div>
+            );
+        }
+
+        // creating header component
+        function Header() {
+            return (
+                <div>
+                    <h1>Header</h1>
+                    <nav>
+                        <ul>
+                            <li>Home</li>
+                            <li>About</li>
+                            <li>Contact</li>
+                        </ul>
+                    </nav>
+                </div>
+            );
+        }
+
+        // creating main component
+        function Main() {
+            return (
+                <div>
+                    <Profile name="John" umur="21" pekerjaan="frontend"/>
+                    <Profile name="Jack" umur="18" pekerjaan="backend"/>
+                    <Profile />
+                </div>
+            );
+        }
+
+        // creating footer component
+        function Footer() {
+            return (
+                <div>
+                    <p><b>Footer</b> &copy; 2021 John Doe</p>
+                </div>
+            );
+        }
+
+        // creating app component
+        function App() {
+            return (
+                <div>
+                    <Header />
+                    <Main />
+                    <Footer />
+                </div>
+            );
+        }
+
+        // rendering app component
+        root.render(
+            <div>
+                <App />
+            </div>
+        );
+
+
+    </script>
+</body>
+
+</html>
