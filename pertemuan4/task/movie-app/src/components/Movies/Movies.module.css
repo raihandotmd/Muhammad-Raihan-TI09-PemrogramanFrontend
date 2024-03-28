@@ -1,6 +1,7 @@
 /* Small Screen */
 .container {
-    margin: 1rem;
+    padding: 1rem;
+    background-color: #f8fafc;
 }
 
 .movies {
@@ -36,7 +37,7 @@
 /* Large Screen */
 @media (min-width: 992px) {
     .container {
-        max-width: 1200px;
+        /* max-width: 1200px; */
         margin: 3rem auto;
     }
 }

@@ -7,25 +7,10 @@
 }
 
 .footer__title {
-    margin-bottom: 1rem;
+    margin-top: 0.8rem;
+    margin-bottom: 0.5rem;
 }
 
 .footer__author {
     margin-bottom: 1rem;
-}
-
-/* Medium Screen */
-@media (min-width: 768px) {
-    /*
-     * Nothing TODO here.
-     * We dont change styling footer. 
-     */
-}
-
-/* Large Screen */
-@media (min-width: 992px) {
-    /*
-     * Nothing TODO here.
-     * We dont change styling footer. 
-     */
 }
