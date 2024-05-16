@@ -1,11 +1,9 @@
 import MovieCard from "./MovieCard/MovieCard";
 import styles from "./Movies.module.css";
-import data from "../../utils/constants/data.js";
-import { useState } from "react";
 import { nanoid } from "nanoid";
 
-const Movies = () => {
-  const [movies, setMovies] = useState(data);
+const Movies = (props) => {
+  const { movies, setMovies } = props;
 
   function handleClick() {
     const newMovie = {

@@ -1,20 +1,22 @@
-import React from "react";
 import Navbar from "../components/Navbar/Navbar";
 import Hero from "../components/Hero/Hero";
 import Movies from "../components/Movies/Movies";
-import Form from "../components/Form/Form";
+import AddMovieForm from "../components/Movies/AddMovieForm/AddMovieForm";
 import Footer from "../components/Footer/Footer";
+import { useState } from "react";
+import data from "../utils/constants/data";
 
 const Home = () => {
-    return (
-        <>
-            <Navbar />
-            <Hero />
-            <Movies />
-            <Form />
-            <Footer />
-        </>
-    );
+  const [movies, setMovies] = useState(data);
+  return (
+    <>
+      <Navbar />
+      <Hero />
+      <Movies movies={movies} setMovies={setMovies} />
+      <AddMovieForm movies={movies} setMovies={setMovies} />
+      <Footer />
+    </>
+  );
 };
 
 export default Home;
