@@ -1,8 +1,8 @@
 const Alert = (props) => {
   const { children } = props;
   return (
-    <div>
-      <span>{children}</span>
+    <div style={{ marginBottom: "1rem" }}>
+      <span style={{ color: "red" }}>{children}</span>
     </div>
   );
 };

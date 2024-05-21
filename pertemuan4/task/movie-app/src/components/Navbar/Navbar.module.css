@@ -1,54 +1,89 @@
 /* Small Screen */
 .container {
-    background-color: #4361ee;
-    padding: 2rem;
-    color: #fff;
+  background-color: #4361ee;
+  padding: 2rem;
+  color: #fff;
 }
 
 .navbar {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .navbar__brand {
-    font-size: 2.4rem;
-    margin-bottom: 1rem;
+  font-size: 2.4rem;
 }
 
 .navbar__list {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
+  display: none;
 }
 
 .navbar__item {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
+.navbar__main {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 1.5rem;
+}
+
+.navbar__toggle {
+  display: inline-block;
+}
+
+.navbar__toggle button {
+  background: none;
+  border: 0;
+  font-weight: bold;
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+}
+
+.navbar__toggle button:hover {
+  color: black;
+}
+
+.navbar__list_show {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
 /* Medium Screen */
 @media (min-width: 768px) {
-    .navbar {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-    .navbar__brand {
-        margin-bottom: 0;
-    }
+  .navbar__main {
+    margin-bottom: 0;
+  }
 
-    .navbar__list {
-        flex-direction: row;
-    }
+  .navbar__toggle {
+    display: none;
+  }
 
-    .navbar__item {
-        margin: 0 1rem;
-    }
+  .navbar__list {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+  }
+
+  .navbar__item {
+    margin: 0 1rem;
+  }
 }
 
 /* Large Screen */
 @media (min-width: 992px) {
-    /* 
+  /* 
      * Nothing TODO HERE.
      * We haven't styling Navbar.
      */
