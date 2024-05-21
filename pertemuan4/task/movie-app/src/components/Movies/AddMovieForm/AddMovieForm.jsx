@@ -11,7 +11,7 @@ const AddMovieForm = (props) => {
       value: "",
       error: false,
     },
-    date: {
+    year: {
       value: "",
       error: false,
     },
@@ -20,49 +20,23 @@ const AddMovieForm = (props) => {
       error: false,
     },
     type: {
-      value: "",
+      value: "Action",
       error: false,
     },
   });
 
-  function handleTitle(e) {
-    setInputVal("title", e.target.value);
+  function handleChange(e) {
+    const { name, value } = e.target;
 
-    // setInputValue({
-    //   ...inputValue,
-    //   title: {
-    //     ...inputValue.title,
-    //     value: e.target.value,
-    //   },
-    // });
-  }
-
-  function handleDate(e) {
-    setInputVal("date", e.target.value);
-
-    // setInputValue({
-    //   ...inputValue,
-    //   date: {
-    //     ...inputValue.date,
-    //     value: e.target.value,
-    //   },
-    // });
-  }
-
-  function handleImage(e) {
-    setInputVal("image", e.target.value);
-  }
-
-  function handleType(e) {
-    setInputVal("type", e.target.value);
+    setInputVal(name, value);
   }
 
   // by having this i can set input easily.
-  function setInputVal(type, value) {
+  function setInputVal(name, value) {
     setInputValue({
       ...inputValue,
-      [type]: {
-        ...inputValue[type],
+      [name]: {
+        ...inputValue[name],
         value: value,
       },
     });
@@ -73,8 +47,8 @@ const AddMovieForm = (props) => {
     if (typeValue == "all") {
       setInputValue({
         ...inputValue,
-        date: {
-          ...inputValue.date,
+        year: {
+          ...inputValue.year,
           error: status,
         },
 
@@ -102,49 +76,47 @@ const AddMovieForm = (props) => {
     }
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  function addMovie() {
+    const movie = {
+      id: nanoid(),
+      title: inputValue.title.value,
+      year: inputValue.year.value,
+      type: inputValue.type.value,
+      poster: inputValue.image.value,
+    };
+    setMovies([...movies, movie]);
+  }
 
+  // input validator
+  function inputValidator() {
     if (inputValue.title.value === "") {
       setInputErr("title", true);
 
-      // setInputValue({
-      //   ...inputValue,
-      //   title: {
-      //     ...inputValue.title,
-      //     error: true,
-      //   },
-      // });
+      return false;
     } else if (
-      // checking to see if date value is not null and int.
-      inputValue.date.value === "" &&
-      inputValue.date.value % 1 === 0
+      // checking to see if the Year value is not null and int.
+      inputValue.year.value === "" &&
+      inputValue.year.value % 1 === 0
     ) {
-      setInputErr("date", true);
-
-      // setInputValue({
-      //   ...inputValue,
-      //   date: {
-      //     ...inputValue.date,
-      //     error: true,
-      //   },
-      // });
+      setInputErr("year", true);
+      return false;
     } else if (inputValue.image.value === "") {
       setInputErr("image", true);
+      return false;
     } else if (inputValue.type.value === "") {
       setInputErr("type", true);
+      return false;
     } else {
-      const movie = {
-        id: nanoid(),
-        title: inputValue.title.value,
-        year: inputValue.date.value,
-        type: inputValue.type.value,
-        poster: inputValue.image.value,
-      };
-      setMovies([...movies, movie]);
-
       setInputErr("all", false);
     }
+
+    return true;
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    inputValidator() && addMovie();
   }
   return (
     <div className={styles.container}>
@@ -166,7 +138,7 @@ const AddMovieForm = (props) => {
           name="title"
           className={styles.form__input}
           value={inputValue.title.value}
-          onChange={handleTitle}
+          onChange={handleChange}
         />
         {inputValue.title.error ? <Alert>Title Wajib Di isi!</Alert> : ""}
         <label htmlFor="year" className={styles.form__inputLabel}>
@@ -177,11 +149,11 @@ const AddMovieForm = (props) => {
           id="year"
           name="year"
           className={styles.form__input}
-          value={inputValue.date.value}
-          onChange={handleDate}
+          value={inputValue.year.value}
+          onChange={handleChange}
         />
-        {inputValue.date.error ? (
-          <Alert>Date Wajib Diisi dan harus Angka!</Alert>
+        {inputValue.year.error ? (
+          <Alert>Year Wajib Diisi dan harus Angka!</Alert>
         ) : (
           ""
         )}
@@ -195,9 +167,9 @@ const AddMovieForm = (props) => {
           name="image"
           className={styles.form__input}
           value={inputValue.image.value}
-          onChange={handleImage}
+          onChange={handleChange}
         />
-        {inputValue.date.error ? <Alert>Image wajib Di isi!</Alert> : ""}
+        {inputValue.image.error ? <Alert>Image wajib Di isi!</Alert> : ""}
 
         <label htmlFor="type" className={styles.form__inputLabel}>
           type
@@ -207,7 +179,7 @@ const AddMovieForm = (props) => {
           name="type"
           id="type"
           value={inputValue.type.value}
-          onChange={handleType}
+          onChange={handleChange}
         >
           <option value="Action">Action</option>
           <option value="Drama">Drama</option>
@@ -215,7 +187,7 @@ const AddMovieForm = (props) => {
           <option value="Comedy">Comedy</option>
           <option value="others">others</option>
         </select>
-        {inputValue.date.error ? <Alert>Type wajib Di isi!</Alert> : ""}
+        {inputValue.type.error ? <Alert>Type wajib Di isi!</Alert> : ""}
 
         <button className={styles.form__submitButton}>Submit</button>
       </form>
