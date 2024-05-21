@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./Navbar.module.css";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [navToggle, setNavToggle] = useState(true);
@@ -18,9 +19,21 @@ const Navbar = () => {
         <ul
           className={`${styles.navbar__list} ${navToggle ? styles.navbar__list_show : ""}`}
         >
-          <li className={styles.navbar__item}>Home</li>
-          <li className={styles.navbar__item}>About</li>
-          <li className={styles.navbar__item}>Profile</li>
+          <li className={styles.navbar__item}>
+            <Link to="/">Home</Link>
+          </li>
+          <li className={styles.navbar__item}>
+            <Link to="/movie/create">Add Movie</Link>
+          </li>
+          <li className={styles.navbar__item}>
+            <Link to="/movie/popular">Popular</Link>
+          </li>
+          <li className={styles.navbar__item}>
+            <Link to="/movie/now">Now Playing</Link>
+          </li>
+          <li className={styles.navbar__item}>
+            <Link to="/movie/top">Top Rated</Link>
+          </li>
         </ul>
       </nav>
     </div>
