@@ -22,6 +22,15 @@
   margin-bottom: 1rem;
 }
 
+.navbar__item a {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar__item a:hover {
+  text-decoration: underline;
+}
+
 .navbar__main {
   display: flex;
   flex-direction: row;
