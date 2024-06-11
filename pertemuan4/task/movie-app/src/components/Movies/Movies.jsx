@@ -1,3 +1,4 @@
+import Button from "../ui/Button";
 import MovieCard from "./MovieCard/MovieCard";
 import styles from "./Movies.module.css";
 import { nanoid } from "nanoid";
@@ -27,7 +28,7 @@ const Movies = (props) => {
             <MovieCard movie={movie} key={movie.id} />
           ))}
         </div>
-        <button onClick={handleClick}>Add Movie</button>
+        <Button onClick={handleClick}>Add Movie</Button>
       </section>
     </div>
   );

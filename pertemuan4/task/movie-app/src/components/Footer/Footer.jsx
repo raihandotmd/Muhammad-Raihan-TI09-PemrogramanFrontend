@@ -1,16 +1,14 @@
-import styles from "./Footer.module.css";
+import StyledFooter from "./StyledFooter";
 
 const Footer = () => {
-    return (
-        <div className={styles.container}>
-            <footer className={styles.footer}>
-                <h2 className={styles.footer__title}>Movie App</h2>
-                <p className={styles.footer__author}>
-                    &copy;2021 by @notRaihan.
-                </p>
-            </footer>
-        </div>
-    );
+  return (
+    <StyledFooter>
+      <footer>
+        <h2>Movie App</h2>
+        <p>&copy;2024 by @raihandotmd.</p>
+      </footer>
+    </StyledFooter>
+  );
 };
 
 export default Footer;
