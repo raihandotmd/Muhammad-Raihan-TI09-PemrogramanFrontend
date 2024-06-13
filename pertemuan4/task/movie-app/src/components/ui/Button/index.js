@@ -8,6 +8,8 @@ const Button = styled.button`
   border-radius: 10px;
   color: ${({ theme }) => theme.colors.white};
 
+  text-decoration: none;
+
   background-color: ${(props) =>
     props.theme.colors[props.variant || "primary"]};
 `;
