@@ -32,8 +32,6 @@ const Hero = () => {
       const res = await axios(URL);
 
       setMovie(res.data);
-
-      console.log(res.data);
     }
 
     fetchDetailMovie();

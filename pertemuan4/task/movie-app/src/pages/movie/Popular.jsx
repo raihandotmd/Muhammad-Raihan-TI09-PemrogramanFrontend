@@ -6,7 +6,7 @@ import Hero from "../../components/Hero/Hero";
 const PopularMovie = () => {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
-    async function fetchPopularMovie() {
+    async function fetchPopularMovies() {
       const API_KEY = import.meta.env.VITE_API_KEY;
       const URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`;
 
@@ -15,7 +15,7 @@ const PopularMovie = () => {
       setMovies(res.data.results);
     }
 
-    fetchPopularMovie();
+    fetchPopularMovies();
   }, []);
   return (
     <>
