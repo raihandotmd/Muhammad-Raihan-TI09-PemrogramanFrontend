@@ -1,4 +1,5 @@
 import StyledMovie from "./StyledMovie";
+import { Link } from "react-router-dom";
 
 const MovieCard = (props) => {
   const { movie } = props;
@@ -9,7 +10,10 @@ const MovieCard = (props) => {
   return (
     <StyledMovie>
       <img src={movie.poster || tmdbImage} alt={movie.title} />
-      <h3>{movie.title}</h3>
+      <Link to={`/movie/${movie.id}`}>
+        <h3>{movie.title}</h3>
+      </Link>
+
       <p>{year}</p>
     </StyledMovie>
   );
