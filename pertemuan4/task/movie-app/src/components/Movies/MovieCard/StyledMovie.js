@@ -3,6 +3,10 @@ import styled from "styled-components";
 const StyledMovie = styled.div`
   margin-bottom: 1rem;
 
+  a {
+    text-decoration: none;
+  }
+
   img {
     border-radius: 25px;
     max-width: 100%;
