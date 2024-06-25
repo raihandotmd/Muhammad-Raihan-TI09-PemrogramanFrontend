@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Button from "../../ui/Button";
 import StyledDetailMovie from "./StyledMovieDetail";
+import ENDPOINTS from "../../../utils/constants/endpoints";
 
 const MovieDetail = () => {
   const { id } = useParams();
@@ -15,10 +16,7 @@ const MovieDetail = () => {
 
   useEffect(() => {
     async function getMovieDetail() {
-      const API_KEY = import.meta.env.VITE_API_KEY;
-      const params = `?api_key=${API_KEY}&append_to_response=videos`;
-      const URL = `https://api.themoviedb.org/3/movie/${id}${params}`;
-      const res = await axios(URL);
+      const res = await axios(ENDPOINTS.DETAIL(id));
 
       setMovie(res.data);
     }

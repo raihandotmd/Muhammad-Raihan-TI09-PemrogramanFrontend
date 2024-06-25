@@ -3,6 +3,7 @@ import StyledHero from "./StyledHero";
 import axios from "axios";
 
 import Button from "../ui/Button";
+import ENDPOINTS from "../../utils/constants/endpoints";
 
 const Hero = () => {
   const [movie, setMovie] = useState([]);
@@ -28,8 +29,7 @@ const Hero = () => {
       const trendingMovie = await fetchFirstTrendingMovie();
       const id = trendingMovie.id;
 
-      const URL = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&append_to_response=videos`;
-      const res = await axios(URL);
+      const res = await axios(ENDPOINTS.DETAIL(id));
 
       setMovie(res.data);
     }
