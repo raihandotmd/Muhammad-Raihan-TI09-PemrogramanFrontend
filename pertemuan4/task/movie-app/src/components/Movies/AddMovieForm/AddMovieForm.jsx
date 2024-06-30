@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import styles from "./AddMovieForm.module.css";
 import { nanoid } from "nanoid";
 import Alert from "./Alert";
+import MoviesContext from "../../../context/MoviesContext";
 
 const AddMovieForm = (props) => {
-  const { movies, setMovies } = props;
+  const { movies, setMovies } = useContext(MoviesContext);
 
   const [inputValue, setInputValue] = useState({
     title: {

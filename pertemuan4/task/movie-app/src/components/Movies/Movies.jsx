@@ -1,10 +1,13 @@
+import { useContext } from "react";
 import Button from "../ui/Button";
 import MovieCard from "./MovieCard/MovieCard";
 import styles from "./Movies.module.css";
 import { nanoid } from "nanoid";
+import MoviesContext from "../../context/MoviesContext";
 
 const Movies = (props) => {
-  const { movies, setMovies, title = "Latest Movies" } = props;
+  const { movies, setMovies } = useContext(MoviesContext);
+  const { title = "Latest Movies" } = props;
 
   function handleClick() {
     const newMovie = {
