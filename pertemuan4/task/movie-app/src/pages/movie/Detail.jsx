@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import MovieDetail from "../../components/Movies/MovieDetail";
 import Movies from "../../components/Movies/Movies";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import ENDPOINTS from "../../utils/constants/endpoints";
+import MoviesContext from "../../context/MoviesContext";
 
 const MovieDetailPage = () => {
   const { id } = useParams();
-  const [movies, setMovies] = useState([]);
+  const { setMovies } = useContext(MoviesContext);
 
   useEffect(() => {
     async function getMoviesRecommendation() {
@@ -21,7 +22,7 @@ const MovieDetailPage = () => {
   return (
     <div>
       <MovieDetail />
-      <Movies movies={movies} title="Movie Recommendations" />
+      <Movies title="Movie Recommendations" />
     </div>
   );
 };

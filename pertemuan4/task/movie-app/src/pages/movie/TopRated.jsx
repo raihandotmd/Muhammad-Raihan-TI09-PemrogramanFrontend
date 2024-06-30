@@ -1,11 +1,12 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useEffect, useContext } from "react";
 import Movies from "../../components/Movies/Movies";
 import Hero from "../../components/Hero/Hero";
 import ENDPOINTS from "../../utils/constants/endpoints";
+import MoviesContext from "../../context/MoviesContext";
 
 const TopRatedMovie = () => {
-  const [movies, setMovies] = useState([]);
+  const { setMovies } = useContext(MoviesContext);
   useEffect(() => {
     async function fetchPopularMovies() {
       const res = await axios(ENDPOINTS.TOP_RATED);
@@ -18,7 +19,7 @@ const TopRatedMovie = () => {
   return (
     <>
       <Hero />
-      <Movies movies={movies} title="Top Rated Movies" />
+      <Movies title="Top Rated Movies" />
     </>
   );
 };
